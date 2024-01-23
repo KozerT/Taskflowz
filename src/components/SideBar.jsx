@@ -1,7 +1,12 @@
 import { list } from "postcss";
 import React from "react";
 
-const SideBar = ({ onAddProject, projects }) => {
+const SideBar = ({
+  onAddProject,
+  projects,
+  onSelectProject,
+  selectedProjectId,
+}) => {
   return (
     <aside className="w-1/3 px-8 py-16 bg-gradient-to-r from-cyan-500 to-blue-500 text-cyan-50  md:w-72 rounded-r-xl shadow-lg  ">
       <h2 className="mb-8  font-bold uppercase md:text-xl">Your Projects</h2>
@@ -14,13 +19,27 @@ const SideBar = ({ onAddProject, projects }) => {
         </button>
       </div>
       <ul className="mt-8">
-        {projects.map((project) => (
-          <li key={project.id}>
-            <button className="w-full  text-left px-2 py-1 rounded-md my-1 font-normal text-xs md:text-base border  border-blue-200   hover:shadow-xl hover:text-white  hover:font-medium ">
-              {project.title}
-            </button>
-          </li>
-        ))}
+        {projects.map((project) => {
+          let cssStyles =
+            "w-full  text-left px-2 py-1 rounded-md my-1 font-normal text-xs md:text-base border  border-blue-200   hover:shadow-xl hover:text-white  hover:font-medium ";
+
+          if (project.id === selectedProjectId) {
+            cssStyles += " text-white  backdrop-brightness-[.90] shadow-xl";
+          } else {
+            cssStyles += " text-cyan-50";
+          }
+
+          return (
+            <li key={project.id}>
+              <button
+                className={cssStyles}
+                onClick={() => onSelectProject(project.id)}
+              >
+                {project.title}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </aside>
   );
