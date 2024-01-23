@@ -1,5 +1,6 @@
 import InputField from "./InputField.jsx";
 import React from "react";
+import ActionButton from "./ActionButton.jsx";
 
 const NewProject = () => {
   return (
@@ -11,9 +12,7 @@ const NewProject = () => {
           </button>
         </li>
         <li>
-          <button className="font-medium text-white bg-blue-400  hover:bg-blue-500 px-4 py-2 text-xs md:text-base rounded-md  shadow-lg  hover:shadow-xl ">
-            Save
-          </button>
+          <ActionButton>Save</ActionButton>
         </li>
       </menu>
       <div>
