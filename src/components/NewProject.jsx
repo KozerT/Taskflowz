@@ -1,8 +1,24 @@
 import InputField from "./InputField.jsx";
-import React from "react";
+import { useRef } from "react";
 import ActionButton from "./ActionButton.jsx";
 
-const NewProject = () => {
+const NewProject = ({ onAdd }) => {
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+  const dueDateRef = useRef();
+
+  const handleSave = () => {
+    const enteredTitle = titleRef.current.value;
+    const enteredDescription = descriptionRef.current.value;
+    const enteredDueDate = dueDateRef.current.value;
+
+    onAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
+  };
+
   return (
     <div className="w-[35rem] mt-16">
       <menu className="flex items-center justify-end gap-4 my-4">
@@ -12,13 +28,13 @@ const NewProject = () => {
           </button>
         </li>
         <li>
-          <ActionButton>Save</ActionButton>
+          <ActionButton onClick={handleSave}>Save</ActionButton>
         </li>
       </menu>
       <div>
-        <InputField label="Title" />
-        <InputField label="Description" textarea />
-        <InputField label="Due Date" />
+        <InputField label="Title" ref={titleRef} />
+        <InputField label="Description" ref={descriptionRef} textarea />
+        <InputField label="Due Date" ref={dueDateRef} />
       </div>
     </div>
   );
