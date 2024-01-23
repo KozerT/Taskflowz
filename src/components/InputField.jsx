@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 
 const InputField = forwardRef(function InputField(
-  { label, textarea, ...props },
+  { label, textarea, type, ...props },
   ref
 ) {
   const classes =
