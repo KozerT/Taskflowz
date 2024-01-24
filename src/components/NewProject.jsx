@@ -57,7 +57,7 @@ const NewProject = ({ onAdd, onCancel }) => {
         <div>
           <InputField label="Title" ref={titleRef} />
           <InputField label="Description" ref={descriptionRef} textarea />
-          <InputField label="Due Date" ref={dueDateRef} />
+          <InputField label="Due Date" ref={dueDateRef} type="date" />
         </div>
       </div>
     </>
