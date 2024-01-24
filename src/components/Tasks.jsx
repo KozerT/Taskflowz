@@ -1,15 +1,29 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import NewTask from "./NewTask";
 
-const Tasks = () => {
+const Tasks = ({ tasks, onAdd, onDelete }) => {
   return (
     <section>
       <h2 className=" text-2xl  font-semibold  text-stone-700 mb-4">Tasks</h2>
-      <NewTask />
-      <p className=" text-stone-600 mb-4  my-4">
-        This project does not have any tasks yet.
-      </p>
-      <ul></ul>
+      <NewTask onAdd={onAdd} />
+      {tasks.length === 0 && (
+        <p className=" text-stone-600 mb-4  mt-8 ">
+          This project does not have any tasks yet.
+        </p>
+      )}
+      {tasks.length > 0 && (
+        <ul className="p-4 mt-8 rounded bg-stone-100 ">
+          {tasks.map((task) => {
+            <li key={task.id} className="flex justify-between my-4">
+              <span>{task.text}</span>
+              <button className="text-stone-700 hover:text-red-300">
+                Clear
+              </button>
+            </li>;
+          })}
+        </ul>
+      )}
     </section>
   );
 };
