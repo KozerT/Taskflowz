@@ -22,13 +22,19 @@ function App() {
 
       return {
         ...prevState,
-        // selectedProjectId: undefined,
         tasks: [newTask, ...prevState.tasks],
       };
     });
   };
 
-  const handleDeleteTask = () => {};
+  const handleDeleteTask = (id) => {
+    setProjects((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  };
 
   const handleSelectProject = (id) => {
     setProjects((prevState) => {
