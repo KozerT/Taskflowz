@@ -2,7 +2,7 @@ import { useState } from "react";
 import ActionButton from "./ActionButton";
 
 const NewTask = ({ onAdd }) => {
-  const [enteredTask, setEnteredTask] = useState();
+  const [enteredTask, setEnteredTask] = useState("");
 
   const handleChange = (event) => {
     setEnteredTask(event.target.value);

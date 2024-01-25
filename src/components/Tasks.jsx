@@ -13,15 +13,18 @@ const Tasks = ({ tasks, onAdd, onDelete }) => {
         </p>
       )}
       {tasks.length > 0 && (
-        <ul className="p-4 mt-8 rounded bg-stone-100 ">
-          {tasks.map((task) => {
-            <li key={task.id} className="flex justify-between my-4">
+        <ul className="mt-8 ">
+          {tasks.map((task) => (
+            <li
+              key={task.id}
+              className="text-xs md:text-base flex justify-between border-blue-100  my-4 px-2 py-2 rounded-md  border bg-stone-50 text-stone-600 drop-shadow-sm "
+            >
               <span>{task.text}</span>
               <button className="text-stone-700 hover:text-red-300">
                 Clear
               </button>
-            </li>;
-          })}
+            </li>
+          ))}
         </ul>
       )}
     </section>
