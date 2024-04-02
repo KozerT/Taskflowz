@@ -1,18 +1,116 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,800&display=swap");
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
   line-height: 1.5;
-  font-weight: 400;
-  /* 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
+  font-weight: 300;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: #002055;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#fbfbfb, #f7f7f7);
+  min-height: 100vh;
+}
+
+#hero-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 50vh;
+  margin: 2rem auto;
+  object-fit: cover;
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+}
+
+#welcome-header {
+  height: 100vh;
+}
+
+#ellipses-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+}
+
+#welcome-header-content {
+  max-width: 40rem;
+  position: absolute;
+  padding: 0 1rem;
+  top: 10%;
+  left: calc(50% - 20rem);
+  z-index: 1;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#welcome-header-content h1 {
+  font-size: 3.2rem;
+  color: #fff;
+  margin: 2rem 0;
+}
+
+.highlighted-content {
+  font-weight: 900;
+  color: #756ef3;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.927);
+}
+
+#cta-link {
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  background: linear-gradient(#8b78ff, #5451d6);
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 15px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.638);
+  transition: all 0.5s ease-out;
+}
+
+#cta-link:hover {
+  background: linear-gradient(#7c69e0, #4a46b4);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#welcome-content section {
+  margin: 6rem 0;
+  color: #696f76;
+}
+
+#welcome-content h2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 2rem 0;
+  color: #002055;
+}
+
+.content-highlighted {
+  color: #756ef3;
+  font-weight: bolder;
+}
+
+main {
+  width: 80%;
+  max-width: 40rem;
+  margin: 1rem auto;
 }
