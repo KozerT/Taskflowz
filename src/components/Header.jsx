@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import NewTask from "./NewTask";
 
 const Header = () => {
   const [isCreatingNewTask, setIsCreatingNewTask] = useState();
@@ -7,15 +8,18 @@ const Header = () => {
     setIsCreatingNewTask(true);
   };
 
-  function handleDone() {
+  const handleDone = () => {
     setIsCreatingNewTask(flase);
-  }
+  };
 
   return (
-    <header>
-      <h1>Your Tasks</h1>
-      <button onClick={handleStartAddNewTask}> Add Challenge </button>
-    </header>
+    <>
+      {isCreatingNewTask && <NewTask />}
+      <header>
+        <h1>Your Tasks</h1>
+        <button onClick={handleStartAddNewTask}> Add Challenge </button>
+      </header>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import react from "../assets/react.png";
-import books from "../assets/nooks.png";
+import books from "../assets/books.png";
 import mailBillPayment from "../assets/mail-bill-payment-small.png";
 import onlineStudy from "../assets/online-study.png";
 import rocket from "../assets/online-study.png";
