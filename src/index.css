@@ -74,7 +74,7 @@ body {
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.927);
 }
 
-#cta-link {
+.primary-btn {
   display: inline-block;
   padding: 0.8rem 3rem;
   background: linear-gradient(#8b78ff, #5451d6);
@@ -85,12 +85,14 @@ body {
   font-size: 15px;
   text-shadow: 0 0 2px rgba(255, 255, 255, 0.638);
   transition: all 0.5s ease-out;
+  border: none;
+  cursor: pointer;
 }
 
-#cta-link:hover {
+.primary-btn:hover {
   background: linear-gradient(#7c69e0, #4a46b4);
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 18px rgba(33, 21, 43, 0.3);
 }
 #welcome-content section {
   margin: 6rem 0;
@@ -104,6 +106,23 @@ body {
   color: #002055;
 }
 
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  color: #002055;
+}
+
+#main-header h1 {
+  font-size: 2rem;
+  color: #756ef3;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(230, 229, 229, 0.927);
+}
+
 .content-highlighted {
   color: #756ef3;
   font-weight: bolder;
@@ -113,4 +132,114 @@ main {
   width: 80%;
   max-width: 40rem;
   margin: 1rem auto;
+}
+
+#new-task label {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-weight: bolder;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  color: #696f76;
+}
+
+#new-task input,
+#new-task textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #5d548b64;
+  background-color: #fff;
+  color: #848a94;
+  font-size: 0.8rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+#new-task-images {
+  display: grid;
+  gap: 0.86rem;
+  grid-template-columns: repeat(auto-fit, 3rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+#new-task-images li {
+  width: 3.4rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  padding: 0.2rem;
+  box-shadow: 0 0 2px rgba(144, 101, 224, 0.331);
+}
+
+#new-task-images li.selected {
+  border: 2px solid #0f61ef;
+}
+
+#new-task-images li img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cancel-btn {
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  border: 1px solid #6660d778;
+  color: #002055;
+  font-weight: 400;
+  transition: all 0.5s ease-out;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.new-task-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-btn {
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.modal {
+  top: 10%;
+  border-radius: 18px;
+  padding: 1.5rem;
+  width: 30rem;
+  max-width: 90%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #8a78ff4c;
+}
+
+.modal-text-main {
+  margin-top: 0;
+  color: #002055;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(31, 26, 36, 0.715);
+  z-index: 9;
 }

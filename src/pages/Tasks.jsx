@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import TaskContextProvider from "../store/tasks-context";
 
 const TasksPage = () => {
-  return <Header />;
+  return (
+    <TaskContextProvider>
+      <Header />
+    </TaskContextProvider>
+  );
 };
 
 export default TasksPage;

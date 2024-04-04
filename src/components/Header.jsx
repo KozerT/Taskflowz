@@ -9,15 +9,18 @@ const Header = () => {
   };
 
   const handleDone = () => {
-    setIsCreatingNewTask(flase);
+    setIsCreatingNewTask(false);
   };
 
   return (
     <>
-      {isCreatingNewTask && <NewTask />}
-      <header>
+      {isCreatingNewTask && <NewTask onDone={handleDone} />}
+      <header id="main-header">
         <h1>Your Tasks</h1>
-        <button onClick={handleStartAddNewTask}> Add Challenge </button>
+        <button onClick={handleStartAddNewTask} className="primary-btn">
+          {" "}
+          Add Task{" "}
+        </button>
       </header>
     </>
   );

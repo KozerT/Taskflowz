@@ -11,7 +11,7 @@ const WelcomePage = () => {
             Work more <span className="highlighted-content">Structured</span>{" "}
             and Organized
           </h1>
-          <Link id="cta-link" to="/tasks">
+          <Link id="cta-link" to="/tasks" className="primary-btn">
             Get Started
           </Link>
         </div>
