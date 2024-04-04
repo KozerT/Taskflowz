@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TasksContext } from "../store/tasks-context";
 
-const TaskItem = (task, onViewDetails, isExpanded) => {
+const TaskItem = ({ task, onViewDetails, isExpanded }) => {
   const { updateTaskStatus } = useContext(TasksContext);
 
   const formattedDate = new Date(task.deadline).toLocaleDateString("en-US", {
@@ -22,7 +22,7 @@ const TaskItem = (task, onViewDetails, isExpanded) => {
     <li>
       <article className="task-item">
         <header>
-          <img {...task.img} />
+          <img {...task.image} />
           <div className="task-item-meta">
             <h2>{task.title}</h2>
             <p>Complete until {formattedDate}</p>

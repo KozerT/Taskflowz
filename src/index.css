@@ -305,7 +305,7 @@ main {
   gap: 1rem;
   flex-direction: column;
   list-style: none;
-  margin: 2rem 0 0 0;
+  margin: 2rem 0.6rem;
   padding: 0;
 }
 
@@ -315,18 +315,19 @@ main {
 
 .task-item header {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .task-item-meta {
-  width: 100%;
+  width: 80%;
 }
 
 .task-item header h2 {
   margin: 0;
-  font-size: 1.25rem;
-  color: #b1c1d9;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .task-item header p {
@@ -363,9 +364,12 @@ main {
 }
 
 .task-item img {
-  width: 4rem;
-  height: 4rem;
+  width: 4.2rem;
+  height: 4.2rem;
   object-fit: contain;
+  box-shadow: 0 0 2px rgba(144, 101, 224, 0.836);
+  border-radius: 50%;
+  padding: 0.3rem;
 }
 
 .task-item-details button {
@@ -381,6 +385,7 @@ main {
   display: inline-block;
   font-size: 0.85rem;
   margin-left: 0.25rem;
+  color: #5451d6;
 }
 
 .task-item-details.expanded .task-item-details-icon {

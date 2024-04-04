@@ -11,9 +11,9 @@ export const TasksContext = createContext({
 export const TaskContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
-  const addTask = () => {
+  const addTask = (task) => {
     setTasks((prevTasks) => [
-      { ...tasks, id: Math.random().toString(), status: "active" },
+      { ...task, id: Math.random().toString(), status: "active" },
       ...prevTasks,
     ]);
   };

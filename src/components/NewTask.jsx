@@ -65,7 +65,7 @@ const NewTask = ({ onDone }) => {
               onClick={() => handleSelectedImage(image)}
               className={selectedImage === image ? "selected" : undefined}
             >
-              <img {...image} onClick={stopPropagation} />
+              <img {...image} />
             </li>
           ))}
         </ul>
@@ -77,7 +77,9 @@ const NewTask = ({ onDone }) => {
           >
             Cancel
           </button>
-          <button className="primary-btn modal-btn">Add Task</button>
+          <button className="primary-btn modal-btn" type="submit">
+            Add Task
+          </button>
         </p>
       </form>
     </Modal>
