@@ -77,7 +77,7 @@ const NewTask = ({ onDone }) => {
           >
             Cancel
           </button>
-          <button className="primary-btn modal-btn">Add Challenge</button>
+          <button className="primary-btn modal-btn">Add Task</button>
         </p>
       </form>
     </Modal>
