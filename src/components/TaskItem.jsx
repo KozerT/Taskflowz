@@ -34,7 +34,7 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
             </p>
           </div>
         </header>
-        <div className="task-item-details">
+        <div className={`task-item-details ${isExpanded ? "expanded" : ""}`}>
           <p>
             <button onClick={onViewDetails}>
               View Details{" "}
