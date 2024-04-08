@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { TasksContext } from "../store/tasks-context";
+import { motion } from "framer-motion";
 
 const TaskItem = ({ task, onViewDetails, isExpanded }) => {
   const { updateTaskStatus } = useContext(TasksContext);
@@ -38,7 +39,12 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
           <p>
             <button onClick={onViewDetails}>
               View Details{" "}
-              <span className="task-item-details-icon">&#9650;</span>
+              <motion.span
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                className="task-item-details-icon"
+              >
+                &#9650;
+              </motion.span>
             </button>
           </p>
 
