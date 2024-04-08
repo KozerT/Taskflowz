@@ -22,7 +22,7 @@ const Header = () => {
         <h1>Your Tasks</h1>
         <motion.button
           whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 500 }}
+          transition={{ type: "spring", stiffness: 100 }}
           onClick={handleStartAddNewTask}
           className="primary-btn"
         >
