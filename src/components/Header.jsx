@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NewTask from "./NewTask";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
   const [isCreatingNewTask, setIsCreatingNewTask] = useState();
@@ -18,13 +18,17 @@ const Header = () => {
       <AnimatePresence>
         {isCreatingNewTask && <NewTask onDone={handleDone} />}
       </AnimatePresence>
-
       <header id="main-header">
         <h1>Your Tasks</h1>
-        <button onClick={handleStartAddNewTask} className="primary-btn">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 500 }}
+          onClick={handleStartAddNewTask}
+          className="primary-btn"
+        >
           {" "}
           Add Task{" "}
-        </button>
+        </motion.button>
       </header>
     </>
   );
