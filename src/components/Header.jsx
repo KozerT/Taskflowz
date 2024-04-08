@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NewTask from "./NewTask";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isCreatingNewTask, setIsCreatingNewTask] = useState();
@@ -14,7 +15,10 @@ const Header = () => {
 
   return (
     <>
-      {isCreatingNewTask && <NewTask onDone={handleDone} />}
+      <AnimatePresence>
+        {isCreatingNewTask && <NewTask onDone={handleDone} />}
+      </AnimatePresence>
+
       <header id="main-header">
         <h1>Your Tasks</h1>
         <button onClick={handleStartAddNewTask} className="primary-btn">
