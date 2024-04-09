@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react";
 import images from "../assets/images.js";
 import { TasksContext } from "../store/tasks-context.jsx";
 import Modal from "./Modal.jsx";
+import { motion } from "framer-motion";
 
 const NewTask = ({ onDone }) => {
   const title = useRef();
@@ -60,13 +61,19 @@ const NewTask = ({ onDone }) => {
 
         <ul id="new-task-images">
           {images.map((image) => (
-            <li
+            <motion.li
+              variants={{
+                hidden: { opacity: 0, scale: 0.5 },
+                visible: { opacity: 1, scale: 1 },
+              }}
+              exit={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring" }}
               key={image.alt}
               onClick={() => handleSelectedImage(image)}
               className={selectedImage === image ? "selected" : undefined}
             >
               <img {...image} />
-            </li>
+            </motion.li>
           ))}
         </ul>
         <p className="new-task-actions">
