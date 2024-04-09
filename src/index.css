@@ -289,7 +289,6 @@ main {
 #tabs button.selected {
   background: linear-gradient(#7d69e0ee, #4a46b4ec);
   color: #fff;
-  color: #fff;
 }
 
 #tabs .active-tab-indicator {

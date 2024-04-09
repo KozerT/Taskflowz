@@ -2,12 +2,14 @@ import { useContext, useRef, useState } from "react";
 import images from "../assets/images.js";
 import { TasksContext } from "../store/tasks-context.jsx";
 import Modal from "./Modal.jsx";
-import { motion } from "framer-motion";
+import { motion, useAnimate, stagger } from "framer-motion";
 
 const NewTask = ({ onDone }) => {
   const title = useRef();
   const description = useRef();
   const deadline = useRef();
+
+  const [scope, animate] = useAnimate();
 
   const [selectedImage, setSelectedImage] = useState(null);
   const { addTask } = useContext(TasksContext);
@@ -30,6 +32,11 @@ const NewTask = ({ onDone }) => {
       !task.deadline.trim() ||
       !task.image
     ) {
+      animate(
+        "input, textarea",
+        { x: [-10, 0, 10, 0] },
+        { type: "spring", duration: 0.2, delay: stagger(0.05) }
+      );
       return;
     }
 
@@ -43,7 +50,12 @@ const NewTask = ({ onDone }) => {
 
   return (
     <Modal title="New Task" onClose={onDone} stopPropagation={stopPropagation}>
-      <form id="new-task" onSubmit={handleSubmit} className="new-task-form">
+      <form
+        id="new-task"
+        onSubmit={handleSubmit}
+        className="new-task-form"
+        ref={scope}
+      >
         <p>
           <label htmlFor="title">Title</label>
           <input type="text" name="title" id="title" ref={title} />
@@ -67,7 +79,7 @@ const NewTask = ({ onDone }) => {
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
-                visible: { opacity: 1, scale: 1 },
+                visible: { opacity: 1, scale: [0.8, 1.3, 1] },
               }}
               exit={{ opacity: 1, scale: 1 }}
               transition={{ type: "spring" }}
