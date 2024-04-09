@@ -59,7 +59,10 @@ const NewTask = ({ onDone }) => {
           <input type="date" name="deadline" id="deadline" ref={deadline} />
         </p>
 
-        <ul id="new-task-images">
+        <motion.ul
+          id="new-task-images"
+          variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+        >
           {images.map((image) => (
             <motion.li
               variants={{
@@ -75,7 +78,7 @@ const NewTask = ({ onDone }) => {
               <img {...image} />
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
         <p className="new-task-actions">
           <button
             type="button"
