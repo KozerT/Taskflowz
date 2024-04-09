@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import TaskTabs from "./TaskTabs";
 import { TasksContext } from "../store/tasks-context";
 import TaskItem from "./TaskItem";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Tasks = () => {
   const { tasks } = useContext(TasksContext);
@@ -36,19 +37,32 @@ const Tasks = () => {
         onSelectType={handleSelectType}
         selectedType={selectedType}
       >
-        {displayedTasks.length > 0 && (
-          <ol className="task-items">
-            {displayedTasks.map((task) => (
-              <TaskItem
-                key={task.id}
-                task={task}
-                onViewDetails={() => handleViewDetails(task.id)}
-                isExpanded={expanded === task.id}
-              />
-            ))}
-          </ol>
-        )}
-        {displayedTasks.length === 0 && <p>No challenges found.</p>}
+        <AnimatePresence mode="wait">
+          {displayedTasks.length > 0 && (
+            <motion.ol key="list" className="task-items">
+              <AnimatePresence>
+                {displayedTasks.map((task) => (
+                  <TaskItem
+                    key={task.id}
+                    task={task}
+                    onViewDetails={() => handleViewDetails(task.id)}
+                    isExpanded={expanded === task.id}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.ol>
+          )}
+          {displayedTasks.length === 0 && (
+            <motion.p
+              key="fallback"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+            >
+              No tasks found.
+            </motion.p>
+          )}
+        </AnimatePresence>
       </TaskTabs>
     </div>
   );

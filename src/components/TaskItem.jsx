@@ -20,7 +20,7 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
   };
 
   return (
-    <li>
+    <motion.li layout exit={{ y: -10, opacity: 0 }}>
       <article className="task-item">
         <header>
           <img {...task.image} />
@@ -55,7 +55,7 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
           )}
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 };
 
