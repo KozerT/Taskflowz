@@ -39,7 +39,13 @@ const Tasks = () => {
       >
         <AnimatePresence mode="wait">
           {displayedTasks.length > 0 && (
-            <motion.ol key="list" className="task-items">
+            <motion.ol
+              key="list"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="task-items"
+            >
               <AnimatePresence>
                 {displayedTasks.map((task) => (
                   <TaskItem

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TasksContext } from "../store/tasks-context";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TaskItem = ({ task, onViewDetails, isExpanded }) => {
   const { updateTaskStatus } = useContext(TasksContext);
@@ -20,7 +20,7 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
   };
 
   return (
-    <motion.li layout exit={{ y: -10, opacity: 0 }}>
+    <motion.li layout exit={{ opacity: 0, y: -10 }}>
       <article className="task-item">
         <header>
           <img {...task.image} />
@@ -47,12 +47,17 @@ const TaskItem = ({ task, onViewDetails, isExpanded }) => {
               </motion.span>
             </button>
           </p>
-
-          {isExpanded && (
-            <div>
-              <p className="task-item-description">{task.description}</p>
-            </div>
-          )}
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+              >
+                <p className="task-item-description">{task.description}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </article>
     </motion.li>
