@@ -26,46 +26,51 @@ body {
 #hero-img {
   display: block;
   width: auto;
-  max-width: 100%;
-  height: 50vh;
-  margin: 2rem auto;
-  object-fit: cover;
+  height: 50dvh;
+  margin: 0 auto;
   position: absolute;
-  bottom: 4%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 44%;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
 }
-
 #welcome-header {
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 0 0.8rem;
 }
 
 #ellipses-background {
-  width: 100%;
-  height: 100%;
+  width: 100dvw;
+  max-width: 90rem;
+
+  height: auto;
   position: absolute;
-  top: 0;
-  left: 0;
+  margin: auto;
   object-fit: cover;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
 }
 
 #welcome-header-content {
   max-width: 40rem;
-  position: absolute;
-  padding: 0 1rem;
-  top: 10%;
-  left: calc(50% - 20rem);
   z-index: 1;
+  align-self: flex-start;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   text-align: center;
+  margin-top: 6rem;
 }
 
 #welcome-header-content h1 {
   font-size: 3.2rem;
   color: #fff;
-  margin: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  #welcome-header-content h1 {
+    font-size: 2rem;
+  }
 }
 
 .highlighted-content {
@@ -287,7 +292,7 @@ main {
 
 #tabs button:hover,
 #tabs button.selected {
-  background: linear-gradient(#7d69e0ee, #4a46b4ec);
+  /* background: linear-gradient(#7d69e0ee, #4a46b4ec); */
   color: #fff;
 }
 

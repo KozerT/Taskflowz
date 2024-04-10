@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 import background from "../assets/background.png";
 import man from "../assets/man.png";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const WelcomePage = () => {
+  const { scrollY } = useScroll();
+
+  const yMen = useTransform(scrollY, [0, 200], [0, -100]);
+  const opacityMen = useTransform(scrollY, [0, 200], [1, 0]);
+
+  const yBackground = useTransform(scrollY, [0, 200], [0, -50]);
+  const opacityBackground = useTransform(scrollY, [0, 200], [1, 0]);
+
+  const scaleText = useTransform(scrollY, [0, 200], [1, 1.2]);
+  const yText = useTransform(scrollY, [0, 200], [0, 300]);
   return (
     <>
       <header id="welcome-header">
-        <div id="welcome-header-content">
+        <motion.div
+          id="welcome-header-content"
+          style={{ scale: scaleText, y: yText }}
+        >
           <h1>
             Work more <span className="highlighted-content">Structured</span>{" "}
             and Organized
@@ -14,9 +28,19 @@ const WelcomePage = () => {
           <Link id="cta-link" to="/tasks" className="primary-btn">
             Get Started
           </Link>
-        </div>
-        <img src={background} alt="ellipses" id="ellipses-background" />
-        <img src={man} alt="man" id="hero-img" />
+        </motion.div>
+        <motion.img
+          style={{ opacity: opacityBackground, y: yBackground }}
+          src={background}
+          alt="ellipses"
+          id="ellipses-background"
+        />
+        <motion.img
+          src={man}
+          alt="man"
+          id="hero-img"
+          style={{ y: yMen, opacity: opacityMen }}
+        />
       </header>
       <main id="welcome-content">
         <section>
